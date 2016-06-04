@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,7 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDbContext.cs" />
+    <Compile Include="Mapping\CategoriesMap.cs" />
+    <Compile Include="Mapping\ItemsMap.cs" />
+    <Compile Include="Mapping\ResourcesMap.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\directory21.Core\directory21.Core.csproj">
+      <Project>{525D30EC-0EE5-4F86-BE5B-89AA0CF7EDF7}</Project>
+      <Name>directory21.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

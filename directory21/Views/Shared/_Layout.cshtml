@@ -9,34 +9,37 @@
     <div id="site">
         <div id="wrapper">
             <div id="header">
-                <a href="index.php" id="logo">
-                    <img src="images/spacer.gif" alt="" width="360" height="90" /></a>
+                <a href="#" id="logo">
+                    <img src="@Url.Content("~/Content/themes/images/spacer.gif")" alt="" width="360" height="90" /></a>
                 <div style="position: absolute; top: 1px; left: 1px; height: 0px; width: 0px; overflow: hidden">
                     <h1><a href="http://www.greatdirectories.org">best web directories</a></h1>
                     <h1><a href="http://www.bestfreetemplates.org">best free templates</a></h1>
                 </div>
-                <div class="search"><span>Search</span>
-                    <input type="text" /><a href="#"><img src="images/go.jpg" alt="setalpm" width="72" height="28" /></a></div>
+                <div class="search">
+                    <span>Search</span>
+                    <input type="text" /><a href="#"><img src="@Url.Content("~/Content/themes/images/go.jpg")" alt="setalpm" width="72" height="28" /></a>
+                </div>
                 <ul id="menu">
-                    <li><a href="index.php" class="but1_active">Home</a></li>
-                    <li><a href="index2.php" class="but2">Submit a Listing</a></li>
-                    <li><a href="index2.php" class="but3">New Listings</a></li>
-                    <li><a href="index2.php" class="but4">Top Viewed</a></li>
-                    <li><a href="index2.php" class="but5">Top Rated</a></li>
-                    <li><a href="index2.php" class="but6">Partners Directories</a></li>
-                    <li><a href="index2.php" class="but7">Contact Us</a></li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "but1_active" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", null, new { @class = "but2" })</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "but3" } )</li>
+                    <li>@Html.ActionLink("Submit List", "SubmitList", "Home", null, new { @class = "but4" } )</li>
+                    <li>@Html.ActionLink("Top Viewed", "TopViewed", "Home", null, new { @class = "but5" } )</li>
+                    <li>@Html.ActionLink("Top Rate", "TopRate", "Home", null, new { @class = "but6" } )</li>
                 </ul>
                 <div class="logo">SSL Business directory is a complete directory service which will help you to find out the best resource online. You will get all the links you need. Also you can  submit your weblinks too.</div>
-                <div class="rss"><a href="#">
-                    <img src="images/spacer.gif" alt="" width="27" height="62" /></a></div>
+                <div class="rss">
+                    <a href="#">
+                        <img src="@Url.Content("~/Content/themes/images/spacer.gif")" alt="" width="27" height="62" /></a>
+                </div>
                 <span class="text">Products and Services</span>
             </div>
             <div id="content">
                 <div id="sidebar">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="#">Accounting</a></li>
-                        <li><a href="#">Business Travel</a></li>
+                        <li>@Html.ActionLink("Accounting", "Index", "Resources", new { id = "123" }, null)</li>
+                        <!--<li><a href="#">Business Travel</a></li>
                         <li><a href="#">Construction</a></li>
                         <li><a href="#">Education</a></li>
                         <li><a href="#">Finance</a></li>
@@ -53,7 +56,7 @@
                         <li><a href="#">Software</a></li>
                         <li><a href="#">Startup</a></li>
                         <li><a href="#">Technology</a></li>
-                        <li><a href="#">Browse Directory</a></li>
+                        <li><a href="#">Browse Directory</a></li>!-->
                     </ul>
                     <a href="#" class="more">more resourses</a><br />
                 </div>
@@ -63,14 +66,14 @@
             </div>
             <div id="footer">
                 <ul>
-                    <li><a href="index.php">Home</a> |</li>
-                    <li><a href="index2.php">Submit a Listing</a> |</li>
-                    <li><a href="index2.php">New Listings</a> |</li>
-                    <li><a href="index2.php">Top Viewed</a> |</li>
-                    <li><a href="index2.php">Partners Directories</a> |</li>
-                    <li><a href="index2.php">Contact Us</a></li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Submit List", "SubmitList", "Home")</li>
+                    <li>@Html.ActionLink("Top Viewed", "TopViewed", "Home")</li>
+                    <li>@Html.ActionLink("Top Rate", "TopRate", "Home")</li>
                 </ul>
-                <p>Copyright &copy;. 2010 ShabakaSoft Ltd. All rights reserved. Developed by <a href="http://www.shabakasoft.com" target="_blank" title="ShabakaSoft Ltd">SSL</a></p>
+                <p>Copyright &copy;. 2010 Desing Website. All rights reserved. Developed by <a href="http://www.shabakasoft.com" target="_blank" title="ShabakaSoft Ltd">SSL</a></p>
             </div>
         </div>
     </div>
