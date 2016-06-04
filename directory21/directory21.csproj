@@ -122,12 +122,32 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\themes\images\bg.gif" />
+    <Content Include="Content\themes\images\bot_bg.gif" />
+    <Content Include="Content\themes\images\but1.gif" />
+    <Content Include="Content\themes\images\but2.gif" />
+    <Content Include="Content\themes\images\but3.gif" />
+    <Content Include="Content\themes\images\but4.gif" />
+    <Content Include="Content\themes\images\but5.gif" />
+    <Content Include="Content\themes\images\but6.gif" />
+    <Content Include="Content\themes\images\but7.gif" />
+    <Content Include="Content\themes\images\content_bg.gif" />
+    <Content Include="Content\themes\images\content_bot.gif" />
+    <Content Include="Content\themes\images\dots.gif" />
+    <Content Include="Content\themes\images\go.jpg" />
+    <Content Include="Content\themes\images\spacer.gif" />
+    <Content Include="Content\themes\images\top_bg.gif" />
+    <Content Include="Content\themes\images\top_img.jpg" />
+    <Content Include="Content\templete\index.html" />
+    <Content Include="Content\templete\index2.html" />
+    <Content Include="Content\themes\style.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -184,6 +204,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\images\Thumbs.db" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -211,10 +232,10 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

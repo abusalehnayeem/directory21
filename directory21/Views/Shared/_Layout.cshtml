@@ -1,16 +1,78 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE PUBLIC "-//W3C//DTD.php 4.01 Transitional//EN""http://www.w3.org/TR.php4/loose.dtd">
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>Business Directory</title>
+    <meta http-equiv="Content-Type" content="text.php; charset=iso-8859-1">
+    @Styles.Render("~/Content/themes/")
 </head>
 <body>
-    @RenderBody()
-
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
+    <div id="site">
+        <div id="wrapper">
+            <div id="header">
+                <a href="index.php" id="logo">
+                    <img src="images/spacer.gif" alt="" width="360" height="90" /></a>
+                <div style="position: absolute; top: 1px; left: 1px; height: 0px; width: 0px; overflow: hidden">
+                    <h1><a href="http://www.greatdirectories.org">best web directories</a></h1>
+                    <h1><a href="http://www.bestfreetemplates.org">best free templates</a></h1>
+                </div>
+                <div class="search"><span>Search</span>
+                    <input type="text" /><a href="#"><img src="images/go.jpg" alt="setalpm" width="72" height="28" /></a></div>
+                <ul id="menu">
+                    <li><a href="index.php" class="but1_active">Home</a></li>
+                    <li><a href="index2.php" class="but2">Submit a Listing</a></li>
+                    <li><a href="index2.php" class="but3">New Listings</a></li>
+                    <li><a href="index2.php" class="but4">Top Viewed</a></li>
+                    <li><a href="index2.php" class="but5">Top Rated</a></li>
+                    <li><a href="index2.php" class="but6">Partners Directories</a></li>
+                    <li><a href="index2.php" class="but7">Contact Us</a></li>
+                </ul>
+                <div class="logo">SSL Business directory is a complete directory service which will help you to find out the best resource online. You will get all the links you need. Also you can  submit your weblinks too.</div>
+                <div class="rss"><a href="#">
+                    <img src="images/spacer.gif" alt="" width="27" height="62" /></a></div>
+                <span class="text">Products and Services</span>
+            </div>
+            <div id="content">
+                <div id="sidebar">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Accounting</a></li>
+                        <li><a href="#">Business Travel</a></li>
+                        <li><a href="#">Construction</a></li>
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">Finance</a></li>
+                        <li><a href="#">Health Care</a></li>
+                        <li><a href="#">Industrial Goods</a></li>
+                        <li><a href="#">Internet</a></li>
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Legal</a></li>
+                        <li><a href="#">Management &amp; Strategy</a></li>
+                        <li><a href="#">Office Management</a></li>
+                        <li><a href="#">Real Estate</a></li>
+                        <li><a href="#">Retail</a></li>
+                        <li><a href="#">Sales &amp; Marketing</a></li>
+                        <li><a href="#">Software</a></li>
+                        <li><a href="#">Startup</a></li>
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Browse Directory</a></li>
+                    </ul>
+                    <a href="#" class="more">more resourses</a><br />
+                </div>
+                <div id="main">
+                    @RenderBody()
+                </div>
+            </div>
+            <div id="footer">
+                <ul>
+                    <li><a href="index.php">Home</a> |</li>
+                    <li><a href="index2.php">Submit a Listing</a> |</li>
+                    <li><a href="index2.php">New Listings</a> |</li>
+                    <li><a href="index2.php">Top Viewed</a> |</li>
+                    <li><a href="index2.php">Partners Directories</a> |</li>
+                    <li><a href="index2.php">Contact Us</a></li>
+                </ul>
+                <p>Copyright &copy;. 2010 ShabakaSoft Ltd. All rights reserved. Developed by <a href="http://www.shabakasoft.com" target="_blank" title="ShabakaSoft Ltd">SSL</a></p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
