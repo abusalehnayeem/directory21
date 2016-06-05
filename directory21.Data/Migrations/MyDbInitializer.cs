@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,13 @@ using directory21.Core.Domain;
 
 namespace directory21.Data.Migrations
 {
-    internal class Configuration : DbMigrationsConfiguration<SimpleContext>
+    internal sealed class MyDbInitializer : CreateDatabaseIfNotExists<SimpleContext>
     {
-        public Configuration()
-        {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
-        }
+        //public Configuration()
+        //{
+        //    AutomaticMigrationsEnabled = true;
+        //    AutomaticMigrationDataLossAllowed = true;
+        //}
         protected override void Seed(SimpleContext context)
         {
             //  This method will be called after migrating to the latest version.
@@ -37,20 +38,20 @@ namespace directory21.Data.Migrations
                     ResourceName = "Accounting",
                     ResourceDescription = "Test Entry"
                 });
-            context.Categories.AddOrUpdate(
-                new Categories()
-                {
-                    Id = Guid.NewGuid(),
-                    CategotyName = "Test Categoty",
-                    CategoryDescription = "Test Entry"
-                });
-            context.Items.AddOrUpdate(
-                new Items()
-                {
-                    Id = Guid.NewGuid(),
-                    ItemName = "Test Item",
-                    ItemDescription = "Test Entry"
-                });
+            //context.Categories.AddOrUpdate(
+            //    new Categories()
+            //    {
+            //        Id = Guid.NewGuid(),
+            //        CategotyName = "Test Categoty",
+            //        CategoryDescription = "Test Entry"
+            //    });
+            //context.Items.AddOrUpdate(
+            //    new Items()
+            //    {
+            //        Id = Guid.NewGuid(),
+            //        ItemName = "Test Item",
+            //        ItemDescription = "Test Entry"
+            //    });
         }
     }
 }
