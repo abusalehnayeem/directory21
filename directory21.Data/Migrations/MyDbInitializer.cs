@@ -34,24 +34,21 @@ namespace directory21.Data.Migrations
             context.Resources.AddOrUpdate(
                 new Resources()
                 {
-                    Id = Guid.NewGuid(),
                     ResourceName = "Accounting",
                     ResourceDescription = "Test Entry"
                 });
-            //context.Categories.AddOrUpdate(
-            //    new Categories()
-            //    {
-            //        Id = Guid.NewGuid(),
-            //        CategotyName = "Test Categoty",
-            //        CategoryDescription = "Test Entry"
-            //    });
-            //context.Items.AddOrUpdate(
-            //    new Items()
-            //    {
-            //        Id = Guid.NewGuid(),
-            //        ItemName = "Test Item",
-            //        ItemDescription = "Test Entry"
-            //    });
+            context.Categories.AddOrUpdate(
+                new Categories()
+                {
+                    CategotyName = "Test Categoty",
+                    CategoryDescription = "Test Entry"
+                });
+            context.Items.AddOrUpdate(
+                new Items()
+                {
+                    ItemName = "Test Item",
+                    ItemDescription = "Test Entry"
+                });
         }
     }
 }

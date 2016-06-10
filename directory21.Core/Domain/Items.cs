@@ -10,6 +10,7 @@ namespace directory21.Core.Domain
     {
         public string ItemName { get; set; }
         public string ItemDescription { get; set; }
+        public int CategoriesId { get; set; }
         public virtual Categories Categories { get; set; }
     }
 }
