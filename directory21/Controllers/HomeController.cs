@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using directory21.Core.Data;
 using directory21.Core.Domain;
 using directory21.Data;
+using directory21.Service.ResourcesService;
 
 namespace directory21.Controllers
 {
@@ -18,7 +19,7 @@ namespace directory21.Controllers
         //    _repository = repository;
         //}
 
-        private readonly SimpleContext _context = new SimpleContext();
+        private readonly IResourcesService _resourcesService;
 
         //
         // GET: /Home/
@@ -26,7 +27,7 @@ namespace directory21.Controllers
         public ActionResult Index()
         {
 
-            return View(_context.Resources.ToList());
+            return View();
         }
 
 

@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Business Directory</title>
-    <meta http-equiv="Content-Type" content="text.php; charset=iso-8859-1">
+    <meta http-equiv="Content-Type" content="charset=iso-8859-1">
     @Styles.Render("~/Content/themes/")
 </head>
 <body>
@@ -27,15 +27,15 @@
                     <li>@Html.ActionLink("Top Viewed", "TopViewed", "Home", null, new { @class = "but5" } )</li>
                     <li>@Html.ActionLink("Top Rate", "TopRate", "Home", null, new { @class = "but6" } )</li>
                 </ul>
-                <div class="logo">SSL Business directory is a complete directory service which will help you to find out the best resource online. You will get all the links you need. Also you can  submit your weblinks too.</div>
+@*                <div class="logo">SSL Business directory is a complete directory service which will help you to find out the best resource online. You will get all the links you need. Also you can  submit your weblinks too.</div>
                 <div class="rss">
                     <a href="#">
                         <img src="@Url.Content("~/Content/themes/images/spacer.gif")" alt="" width="27" height="62" /></a>
-                </div>
-                <span class="text">Products and Services</span>
+                </div>*@
+@*                <span class="text">Products and Services</span>*@
             </div>
             <div id="content">
-                <div id="sidebar">
+                @*<div id="sidebar">
                     <h4>Resources</h4>
                     <ul>
                         <li>@Html.ActionLink("Accounting", "Index", "Resources", new { id = "123" }, null)</li>
@@ -59,7 +59,7 @@
                         <li><a href="#">Browse Directory</a></li>!-->
                     </ul>
                     <a href="#" class="more">more resourses</a><br />
-                </div>
+                </div>*@
                 <div id="main">
                     @RenderBody()
                 </div>
@@ -73,7 +73,7 @@
                     <li>@Html.ActionLink("Top Viewed", "TopViewed", "Home")</li>
                     <li>@Html.ActionLink("Top Rate", "TopRate", "Home")</li>
                 </ul>
-                <p>Copyright &copy;. 2010 Desing Website. All rights reserved. Developed by <a href="http://www.shabakasoft.com" target="_blank" title="ShabakaSoft Ltd">SSL</a></p>
+                <p>Copyright &copy;. 2010 Desing Website. All rights reserved. Developed by <a href="#" target="_blank" title="#">SSL</a></p>
             </div>
         </div>
     </div>

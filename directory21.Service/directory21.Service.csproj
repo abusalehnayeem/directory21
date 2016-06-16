@@ -40,7 +40,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\IResourcesService.cs" />
+    <Compile Include="ResourcesService\IResourcesService.cs" />
+    <Compile Include="ResourcesService\ResourcesService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\directory21.Core\directory21.Core.csproj">
+      <Project>{525d30ec-0ee5-4f86-be5b-89aa0cf7edf7}</Project>
+      <Name>directory21.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\directory21.Data\directory21.Data.csproj">
+      <Project>{8149e535-2fb0-4b3d-8aa7-94ef9d7b847b}</Project>
+      <Name>directory21.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
