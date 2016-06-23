@@ -18,15 +18,21 @@ namespace directory21.Service.ResourcesService
         #region Constructor
         public ResourcesService(IRepository<Resources> resourcesRepository)
         {
+            if (resourcesRepository == null) throw new ArgumentNullException("resourcesRepository");
             _resourcesRepository = resourcesRepository;
         }
+
         #endregion
         
         #region Implementation of IResourcesService
 
         public void DeleteResources(Resources resources)
         {
-            throw new NotImplementedException();
+            if (resources == null)
+            {
+                throw new ArgumentException("resources");
+            }
+            _resourcesRepository.Delete(resources);
         }
 
         public void InsertResources(Resources resources)

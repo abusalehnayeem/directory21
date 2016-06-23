@@ -6,8 +6,6 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Autofac;
-using directory21.Service.ResourcesService;
 
 namespace directory21
 {
@@ -24,11 +22,6 @@ namespace directory21
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            /***********Autofac Register Portion**********/
-            var builder = new ContainerBuilder();
-            builder.RegisterType<ResourcesService>().As<IResourcesService>();
-
 
         }
     }
