@@ -14,7 +14,7 @@ namespace directory21.Data
     {
         #region Variable
 
-        private readonly IDbContext _context;
+        private readonly SimpleContext _context;
         private IDbSet<T> _entity;
         private string _errorMessage;
 
@@ -22,23 +22,21 @@ namespace directory21.Data
 
         #region Constructor
 
-        public Repository(IDbContext context)
+        public Repository()
         {
-            _context = context;
+            _context = new SimpleContext();
         }
         #endregion
 
         #region Implementation of IRepository<T>
 
-        protected virtual IDbSet<T> Entities
-        {
-            get { return _entity ?? (_entity = _context.Set<T>()); }
-        }
+        protected virtual IDbSet<T> Entities => _entity ?? (_entity = _context.Set<T>());
 
-        public IQueryable<T> Table
-        {
-            get { return Entities; }
-        }
+        public IQueryable<T> Table => Entities;
+        //public IQueryable<T> Table
+        //{
+        //    get { return Entities; }
+        //}
 
         public T GetById(object id)
         {
@@ -71,7 +69,7 @@ namespace directory21.Data
             {
                 if (entity == null)
                     throw new ArgumentNullException("entity");
-                //Entities.Add(entity);
+                _context.Entry(entity).State=EntityState.Modified;
                 _context.SaveChanges();
             }
             catch (DbEntityValidationException dbEx)

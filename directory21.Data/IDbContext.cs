@@ -12,5 +12,6 @@ namespace directory21.Data
     {
         IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity;
         int SaveChanges();
+        //void Entry();
     }
 }
