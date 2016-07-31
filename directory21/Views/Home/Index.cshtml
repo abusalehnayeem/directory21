@@ -1,22 +1,24 @@
-﻿@model IQueryable<directory21.Core.Domain.Resources>
+﻿@model directory21.ViewModels.HomeViewModel
 
 @{
     ViewBag.Title = "Index";
 }
 
-@foreach (var item in Model)
+
+@foreach (var item in Model.Resource)
 {
     int dat = 0;
     if (dat == 0)
     {
         <div class="block width1">
-            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) (05)</a>
+            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) ()</a>
             <ul>
-                <li>&raquo; <a href="#">Traditional Medicine</a></li>
+                @*<li>&raquo; <a href="#">Traditional Medicine</a></li>
                 <li>&raquo; <a href="#">Medical Geography</a></li>
                 <li>&raquo; <a href="#">Men's Health</a></li>
                 <li>&raquo; <a href="#">Nursing</a></li>
-                <li>&raquo; <a href="#">Organizations</a></li>
+                <li>&raquo; <a href="#">Organizations</a></li>*@
+
             </ul>
         </div>
         dat = 1;
@@ -24,7 +26,7 @@
     else if (dat == 1)
     {
         <div class="block width2">
-            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) (05)</a>
+            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) ()</a>
             <ul>
                 <li>&raquo; <a href="#">Etiquette</a></li>
                 <li>&raquo; <a href="#">Music</a></li>
@@ -38,7 +40,7 @@
     else if (dat == 2)
     {
         <div class="block width3">
-            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) (05)</a>
+            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) ()</a>
             <ul>
                 <li>&raquo; <a href="#">Traditional Medicine</a></li>
                 <li>&raquo; <a href="#">Medical Geography</a></li>
@@ -52,7 +54,7 @@
     else if (dat == 3)
     {
         <div class="block width4">
-            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) (05)</a>
+            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) ()</a>
             <ul>
                 <li>&raquo; <a href="#">Etiquette</a></li>
                 <li>&raquo; <a href="#">Music</a></li>

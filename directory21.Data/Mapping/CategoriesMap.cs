@@ -19,10 +19,13 @@ namespace directory21.Data.Mapping
             Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(c => c.CategotyName).IsRequired().HasMaxLength(20).HasColumnType("nvarchar");
             Property(c => c.CategoryDescription).HasMaxLength(100).HasColumnType("nvarchar");
+            Property(c=>c.ResourcesId).IsRequired().HasColumnType("int");
             //Table
             ToTable("Categories");
+
             //Relationship
-            
+            HasRequired(c => c.Resources).WithMany(r => r.Categories).HasForeignKey(c => c.ResourcesId);
+
         }
     }
 }

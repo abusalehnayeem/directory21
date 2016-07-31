@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace directory21.Core.Domain
 {
@@ -6,7 +7,7 @@ namespace directory21.Core.Domain
     {
         public string ResourceName { get; set; }
         public string ResourceDescription { get; set; }
-        public virtual Categories Categories { get; set; }
+        public virtual ICollection<Categories> Categories { get; set; }
     }
 
 }

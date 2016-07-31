@@ -17,8 +17,8 @@ namespace directory21.Data.Mapping
 
             //Table
             ToTable("Resources");
-
-            HasOptional(r => r.Categories).WithRequired(c => c.Resources);
+            //Relationship
+            //HasOptional(r => r.Categories).WithRequired(c => c.Resources);
         }
     }
 }

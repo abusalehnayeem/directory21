@@ -13,6 +13,7 @@ namespace directory21.Service.CategoriesService
         void InsertCategories(Categories categories);
         void UpdateCategories(Categories categories);
         Categories GetCategoriesById(int categoriesId);
+        Categories GetCategoriesByResourcesId(int resourcesId);
         IQueryable<Categories> GetAllCategories();
     }
 }

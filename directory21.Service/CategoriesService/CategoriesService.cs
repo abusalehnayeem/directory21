@@ -48,6 +48,11 @@ namespace directory21.Service.CategoriesService
             return categoriesId == 0 ? null : _categoriesRepository.GetById(categoriesId);
         }
 
+        public Categories GetCategoriesByResourcesId(int resourcesId)
+        {
+            return resourcesId == 0 ? null : _categoriesRepository.GetById(resourcesId);
+        }
+
         public IQueryable<Categories> GetAllCategories()
         {
             return _categoriesRepository.Table;
