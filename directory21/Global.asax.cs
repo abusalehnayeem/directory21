@@ -12,6 +12,8 @@ using Autofac.Features.ResolveAnything;
 using Autofac.Integration.Mvc;
 using directory21.Core.Data;
 using directory21.Data;
+using directory21.Service.CategoriesService;
+using directory21.Service.ResourcesService;
 
 namespace directory21
 {
@@ -33,18 +35,25 @@ namespace directory21
             //Inject Dependency
             InjectDependency();
             /************************************************************************/
-        }
+           
+    }
 
         private void InjectDependency()
         {
             var builder = new ContainerBuilder();
             //builder.RegisterControllers(typeof (MvcApplication).Assembly).PropertiesAutowired();
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
-            builder.RegisterGeneric(typeof (Repository<>)).As(typeof (IRepository<>)).InstancePerDependency();
-            builder.RegisterAssemblyTypes()
-                .Where(t => t.Name.EndsWith("Service"))
-                .AsImplementedInterfaces()
-                .InstancePerRequest();
+            builder.RegisterGeneric(typeof (Repository<>)).As(typeof (IRepository<>)).InstancePerRequest();
+            //builder.RegisterAssemblyTypes()
+            //    .Where(t => t.Name.EndsWith("Service"))
+            //    .AsImplementedInterfaces()
+            //    .InstancePerRequest();
+            /***********************************************************************************************/
+            // register Service
+            //builder.RegisterType<SchoolRepository>().As<ISchoolRepository>().InstancePerHttpRequest();
+            builder.RegisterType(typeof (ResourcesService)).As(typeof (IResourcesService)).InstancePerRequest();
+            builder.RegisterType(typeof(CategoriesService)).As(typeof(ICategoriesService)).InstancePerRequest();
+            /***********************************************************************************************/
             builder.RegisterType(typeof (SimpleContext)).As(typeof (SimpleContext)).InstancePerRequest();
             //builder.RegisterSource(new AnyConcreteTypeNotAlreadyRegisteredSource());
             #region Inject HTTP Abstractions

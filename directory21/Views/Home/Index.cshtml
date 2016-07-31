@@ -1,129 +1,66 @@
-﻿@{
+﻿@model IQueryable<directory21.Core.Domain.Resources>
+
+@{
     ViewBag.Title = "Index";
 }
 
-@*<h4>Categories</h4>*@
-<div class="block width1">
-    <a href="#" class="title">Blogs (05)</a>
-    <ul>
-        <li>&raquo; <a href="#">News</a></li>
-        <li>&raquo; <a href="#">Eclectic</a></li>
-        <li>&raquo; <a href="#">Education</a></li>
-        <li>&raquo; <a href="#">Blog Hosting</a></li>
-        <li>&raquo; <a href="#">Library</a></li>
-    </ul>
-</div>
-<div class="block width2">
-    <a href="#" class="title">Science and Technology (05)</a>
-    <ul>
-        <li>&raquo; <a href="#">Geology and Geophysics</a></li>
-        <li>&raquo; <a href="#">Anthropology and Archaeology</a></li>
-        <li>&raquo; <a href="#">Artificial Life</a></li>
-        <li>&raquo; <a href="#">Cognitive Science</a></li>
-        <li>&raquo; <a href="#">Forensics</a></li>
-    </ul>
-</div>
-<div class="block width3">
-    <a href="#" class="title">Arts &amp; Humanities (05)</a>
-    <ul>
-        <li>&raquo; <a href="#">Institutes</a></li>
-        <li>&raquo; <a href="#">Organizations</a></li>
-        <li>&raquo; <a href="#">Art History</a></li>
-        <li>&raquo; <a href="#">Awards</a></li>
-        <li>&raquo; <a href="#">Censorship</a></li>
-    </ul>
-</div>
-<div class="block width4">
-    <a href="#" class="title">News &amp; Media (05)</a>
-    <ul>
-        <li>&raquo; <a href="#">Government</a></li>
-        <li>&raquo; <a href="#">Technology</a></li>
-        <li>&raquo; <a href="#">College and University</a></li>
-        <li>&raquo; <a href="#">Crime</a></li>
-        <li>&raquo; <a href="#">Disabilities</a></li>
-    </ul>
-</div>
-<div class="block width1">
-    <a href="#" class="title">Health (05)</a>
-    <ul>
-        <li>&raquo; <a href="#">Traditional Medicine</a></li>
-        <li>&raquo; <a href="#">Medical Geography</a></li>
-        <li>&raquo; <a href="#">Men's Health</a></li>
-        <li>&raquo; <a href="#">Nursing</a></li>
-        <li>&raquo; <a href="#">Organizations</a></li>
-    </ul>
-</div>
-<div class="block width2">
-    <a href="#" class="title">Reference (05)</a>
-    <ul>
-        <li>&raquo; <a href="#">Etiquette</a></li>
-        <li>&raquo; <a href="#">Music</a></li>
-        <li>&raquo; <a href="#">Parliamentary Procedure</a></li>
-        <li>&raquo; <a href="#">Quotes</a></li>
-        <li>&raquo; <a href="#">Standards</a></li>
-    </ul>
-</div>
-<div class="block width3">
-    <a href="#" class="title">Health (05)</a>
-    <ul>
-        <li>&raquo; <a href="#">Traditional Medicine</a></li>
-        <li>&raquo; <a href="#">Medical Geography</a></li>
-        <li>&raquo; <a href="#">Men's Health</a></li>
-        <li>&raquo; <a href="#">Nursing</a></li>
-        <li>&raquo; <a href="#">Organizations</a></li>
-    </ul>
-</div>
-<div class="block width4">
-    <a href="#" class="title">Reference (05)</a>
-    <ul>
-        <li>&raquo; <a href="#">Etiquette</a></li>
-        <li>&raquo; <a href="#">Music</a></li>
-        <li>&raquo; <a href="#">Parliamentary Procedure</a></li>
-        <li>&raquo; <a href="#">Quotes</a></li>
-        <li>&raquo; <a href="#">Standards</a></li>
-    </ul>
-</div>
-<div class="block width1">
-    <a href="#" class="title">Health (05)</a>
-    <ul>
-        <li>&raquo; <a href="#">Traditional Medicine</a></li>
-        <li>&raquo; <a href="#">Medical Geography</a></li>
-        <li>&raquo; <a href="#">Men's Health</a></li>
-        <li>&raquo; <a href="#">Nursing</a></li>
-        <li>&raquo; <a href="#">Organizations</a></li>
-    </ul>
-</div>
-<div class="block width2">
-    <a href="#" class="title">Reference (05)</a>
-    <ul>
-        <li>&raquo; <a href="#">Etiquette</a></li>
-        <li>&raquo; <a href="#">Music</a></li>
-        <li>&raquo; <a href="#">Parliamentary Procedure</a></li>
-        <li>&raquo; <a href="#">Quotes</a></li>
-        <li>&raquo; <a href="#">Standards</a></li>
-    </ul>
-</div>
-<div class="block width3">
-    <a href="#" class="title">Health (05)</a>
-    <ul>
-        <li>&raquo; <a href="#">Traditional Medicine</a></li>
-        <li>&raquo; <a href="#">Medical Geography</a></li>
-        <li>&raquo; <a href="#">Men's Health</a></li>
-        <li>&raquo; <a href="#">Nursing</a></li>
-        <li>&raquo; <a href="#">Organizations</a></li>
-    </ul>
-</div>
-<div class="block width4">
-    <a href="#" class="title">Reference (05)</a>
-    <ul>
-        <li>&raquo; <a href="#">Etiquette</a></li>
-        <li>&raquo; <a href="#">Music</a></li>
-        <li>&raquo; <a href="#">Parliamentary Procedure</a></li>
-        <li>&raquo; <a href="#">Quotes</a></li>
-        <li>&raquo; <a href="#">Standards</a></li>
-    </ul>
-</div>
-@*<h4 class="pad15">About Directory</h4>
-<p>
-    SSL Business directory is a complete directory service which will help you to find out the best resource online. You will get all the links you need. Also you can submit your weblinks too.
-</p>*@
+@foreach (var item in Model)
+{
+    int dat = 0;
+    if (dat == 0)
+    {
+        <div class="block width1">
+            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) (05)</a>
+            <ul>
+                <li>&raquo; <a href="#">Traditional Medicine</a></li>
+                <li>&raquo; <a href="#">Medical Geography</a></li>
+                <li>&raquo; <a href="#">Men's Health</a></li>
+                <li>&raquo; <a href="#">Nursing</a></li>
+                <li>&raquo; <a href="#">Organizations</a></li>
+            </ul>
+        </div>
+        dat = 1;
+    }
+    else if (dat == 1)
+    {
+        <div class="block width2">
+            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) (05)</a>
+            <ul>
+                <li>&raquo; <a href="#">Etiquette</a></li>
+                <li>&raquo; <a href="#">Music</a></li>
+                <li>&raquo; <a href="#">Parliamentary Procedure</a></li>
+                <li>&raquo; <a href="#">Quotes</a></li>
+                <li>&raquo; <a href="#">Standards</a></li>
+            </ul>
+        </div>
+        dat = 2;
+    }
+    else if (dat == 2)
+    {
+        <div class="block width3">
+            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) (05)</a>
+            <ul>
+                <li>&raquo; <a href="#">Traditional Medicine</a></li>
+                <li>&raquo; <a href="#">Medical Geography</a></li>
+                <li>&raquo; <a href="#">Men's Health</a></li>
+                <li>&raquo; <a href="#">Nursing</a></li>
+                <li>&raquo; <a href="#">Organizations</a></li>
+            </ul>
+        </div>
+        dat = 3;
+    }
+    else if (dat == 3)
+    {
+        <div class="block width4">
+            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) (05)</a>
+            <ul>
+                <li>&raquo; <a href="#">Etiquette</a></li>
+                <li>&raquo; <a href="#">Music</a></li>
+                <li>&raquo; <a href="#">Parliamentary Procedure</a></li>
+                <li>&raquo; <a href="#">Quotes</a></li>
+                <li>&raquo; <a href="#">Standards</a></li>
+            </ul>
+        </div>
+        dat = 0;
+    }
+}

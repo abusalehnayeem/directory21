@@ -22,7 +22,7 @@ namespace directory21.Data.Mapping
             //Table
             ToTable("Categories");
             //Relationship
-            HasRequired(c => c.Resources).WithRequiredPrincipal(r => r.Categories);
+            
         }
     }
 }

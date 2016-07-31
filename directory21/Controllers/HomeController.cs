@@ -12,23 +12,22 @@ namespace directory21.Controllers
 {
     public class HomeController : Controller
     {
-        private IRepository<Resources> _repository;
-
-        public HomeController(IRepository<Resources> repository)
+        //private IRepository<Resources> _repository;
+        private readonly IResourcesService _resourcesService;
+        public HomeController(IResourcesService resourcesService)
         {
-            _repository = repository;
+            _resourcesService = resourcesService;
         }
-
-        //private readonly IResourcesService _resourcesService;
 
         //
         // GET: /Home/
 
         public ActionResult Index()
         {
-            return View(_repository.Table);
+            return View(_resourcesService.GetAllResources());
         }
 
+        
 
     }
 }

@@ -1,4 +1,8 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration;
+using System.Linq;
+using System.Reflection;
 using directory21.Core.Domain;
 using directory21.Data.Migrations;
 using directory21.Data.Mapping;
@@ -9,9 +13,9 @@ namespace directory21.Data
     public class SimpleContext : DbContext, IDbContext
     {
         public SimpleContext()
-            : base("name = DefaultDbContext")
+            : base("name = DefaultDbConnection")
         {
-            Database.SetInitializer(new MyDbInitializer());
+            Database.SetInitializer<SimpleContext>(new CreateDatabaseIfNotExists<SimpleContext>());
         }
 
         static SimpleContext()
@@ -35,15 +39,28 @@ namespace directory21.Data
         public DbSet<Resources> Resources { get; set; }
         public DbSet<Categories> Categories { get; set; }
         public DbSet<Items> Items { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            // I have an abstract base EntityMap class that maps Ids for my entities.
-            // It is used as the base for all my class mappings
-            modelBuilder.Configurations.AddFromAssembly(typeof(ResourcesMap).Assembly);
+            modelBuilder.Configurations.Add(new ResourcesMap());
+
+            modelBuilder.Configurations.Add(new CategoriesMap());
+
+            modelBuilder.Configurations.Add(new ItemsMap());
+            
+            /*Or We can write it  this way*/
+            
+            //var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
+            //    .Where(type => !String.IsNullOrEmpty(type.Namespace))
+            //    .Where(type => type.BaseType != null && type.BaseType.IsGenericType &&
+            //                   type.BaseType.GetGenericTypeDefinition() == typeof (EntityTypeConfiguration<>));
+            //foreach (var type in typesToRegister)
+            //{
+            //    dynamic configurationInstance = Activator.CreateInstance(type);
+            //    modelBuilder.Configurations.Add(configurationInstance);
+            //}
+
             base.OnModelCreating(modelBuilder);
         }
-
-
-        public object ResourcesMap { get; set; }
     }
 }
