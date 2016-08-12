@@ -15,7 +15,7 @@ namespace directory21.Data
         public SimpleContext()
             : base("name = DefaultDbConnection")
         {
-            Database.SetInitializer<SimpleContext>(new CreateDatabaseIfNotExists<SimpleContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<SimpleContext>());
         }
 
         static SimpleContext()

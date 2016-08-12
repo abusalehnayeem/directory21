@@ -1,68 +1,61 @@
-﻿@model directory21.ViewModels.HomeViewModel
+﻿@model IEnumerable<directory21.Core.Domain.Resources>
 
-@{
-    ViewBag.Title = "Index";
-}
+    @{
+        ViewBag.Title = "Index";
+    }
 
-
-@foreach (var item in Model.Resource)
-{
-    int dat = 0;
-    if (dat == 0)
+    @foreach (var item in Model)
     {
-        <div class="block width1">
-            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) ()</a>
-            <ul>
-                @*<li>&raquo; <a href="#">Traditional Medicine</a></li>
-                <li>&raquo; <a href="#">Medical Geography</a></li>
-                <li>&raquo; <a href="#">Men's Health</a></li>
-                <li>&raquo; <a href="#">Nursing</a></li>
-                <li>&raquo; <a href="#">Organizations</a></li>*@
-
-            </ul>
-        </div>
-        dat = 1;
+        int dat = 0;
+        switch (dat)
+        {
+            case 0:
+                <div class="block width1">
+                    <a href="@Url.Action("Index","Resource",new {id=item.Id})" class="title">@Html.DisplayFor(modelItem => item.ResourceName) (@Html.DisplayFor(modelItem => item.Categories.Count))</a>
+                    <ul>
+                        @foreach (var c in item.Categories.Take(5))
+                        {
+                            <li>&raquo; @Html.ActionLink(c.CategotyName, "Index", "Category", new { id = c.Id }, null)</li>
+                        }
+                    </ul>
+                </div>
+                dat = 1;
+                break;
+            case 1:
+                <div class="block width2">
+                    <a href="@Url.Action("Index","Resource",new {id=item.Id})" class="title">@Html.DisplayFor(modelItem => item.ResourceName) (@Html.DisplayFor(modelItem => item.Categories.Count))</a>
+                    <ul>
+                        @foreach (var c in item.Categories.Take(5))
+                        {
+                            <li>&raquo; @Html.ActionLink(c.CategotyName, "Index", "Category", new { id = c.Id }, null)</li>
+                        }
+                    </ul>
+                </div>
+                dat = 2;
+                break;
+            case 2:
+                <div class="block width3">
+                    <a href="@Url.Action("Index","Resource",new {id=item.Id})" class="title">@Html.DisplayFor(modelItem => item.ResourceName) (@Html.DisplayFor(modelItem => item.Categories.Count))</a>
+                    <ul>
+                        @foreach (var c in item.Categories.Take(5))
+                        {
+                            <li>&raquo; @Html.ActionLink(c.CategotyName, "Index", "Category", new { id = c.Id }, null)</li>
+                        }
+                    </ul>
+                </div>
+                dat = 3;
+                break;
+            case 3:
+                <div class="block width4">
+                    <a href="@Url.Action("Index","Resource",new {id=item.Id})" class="title">@Html.DisplayFor(modelItem => item.ResourceName) (@Html.DisplayFor(modelItem => item.Categories.Count))</a>
+                    <ul>
+                        @foreach (var c in item.Categories.Take(5))
+                        {
+                            <li>&raquo; @Html.ActionLink(c.CategotyName, "Index", "Category", new { id = c.Id }, null)</li>
+                        }
+                    </ul>
+                </div>
+                dat = 0;
+                break;
+        }
     }
-    else if (dat == 1)
-    {
-        <div class="block width2">
-            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) ()</a>
-            <ul>
-                <li>&raquo; <a href="#">Etiquette</a></li>
-                <li>&raquo; <a href="#">Music</a></li>
-                <li>&raquo; <a href="#">Parliamentary Procedure</a></li>
-                <li>&raquo; <a href="#">Quotes</a></li>
-                <li>&raquo; <a href="#">Standards</a></li>
-            </ul>
-        </div>
-        dat = 2;
-    }
-    else if (dat == 2)
-    {
-        <div class="block width3">
-            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) ()</a>
-            <ul>
-                <li>&raquo; <a href="#">Traditional Medicine</a></li>
-                <li>&raquo; <a href="#">Medical Geography</a></li>
-                <li>&raquo; <a href="#">Men's Health</a></li>
-                <li>&raquo; <a href="#">Nursing</a></li>
-                <li>&raquo; <a href="#">Organizations</a></li>
-            </ul>
-        </div>
-        dat = 3;
-    }
-    else if (dat == 3)
-    {
-        <div class="block width4">
-            <a href="#" class="title">@Html.DisplayFor(modelItem => item.ResourceName) ()</a>
-            <ul>
-                <li>&raquo; <a href="#">Etiquette</a></li>
-                <li>&raquo; <a href="#">Music</a></li>
-                <li>&raquo; <a href="#">Parliamentary Procedure</a></li>
-                <li>&raquo; <a href="#">Quotes</a></li>
-                <li>&raquo; <a href="#">Standards</a></li>
-            </ul>
-        </div>
-        dat = 0;
-    }
-}
