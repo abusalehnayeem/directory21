@@ -56,14 +56,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDbContext.cs" />
     <Compile Include="Mapping\CategoriesMap.cs" />
     <Compile Include="Mapping\ItemsMap.cs" />
     <Compile Include="Mapping\ResourcesMap.cs" />
     <Compile Include="Migrations\MyDbInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
+    <Compile Include="Repositories\ItemRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\ResourceRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
     <Compile Include="SimpleContext.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\directory21.Core\directory21.Core.csproj">

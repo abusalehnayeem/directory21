@@ -11,7 +11,7 @@
         {
             case 0:
                 <div class="block width1">
-                    <a href="@Url.Action("Index","Resource",new {id=item.Id})" class="title">@Html.DisplayFor(modelItem => item.ResourceName) (@Html.DisplayFor(modelItem => item.Categories.Count))</a>
+                    <a href="@Url.Action("Resource","Home",new {id=item.Id})" class="title">@Html.DisplayFor(modelItem => item.ResourceName) (@Html.DisplayFor(modelItem => item.Categories.Count))</a>
                     <ul>
                         @foreach (var c in item.Categories.Take(5))
                         {

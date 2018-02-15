@@ -6,51 +6,52 @@
     @Styles.Render("~/Content/themes/")
 </head>
 <body>
-    <div id="site">
-        <div id="wrapper">
-            <div id="header">
-                <a href="#" id="logo">
-                    <img src="@Url.Content("~/Content/themes/images/spacer.gif")" alt="" width="360" height="90" /></a>
-                <div style="position: absolute; top: 1px; left: 1px; height: 0px; width: 0px; overflow: hidden">
-                    <h1><a href="http://www.greatdirectories.org">best web directories</a></h1>
-                    <h1><a href="http://www.bestfreetemplates.org">best free templates</a></h1>
-                </div>
-                <div class="search">
-                    <span>Search</span>
-                    <input type="text" /><a href="#"><img src="@Url.Content("~/Content/themes/images/go.jpg")" alt="setalpm" width="72" height="28" /></a>
-                </div>
-                <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "but1_active" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", null, new { @class = "but2" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "but3" } )</li>
-                    <li>@Html.ActionLink("Submit List", "SubmitList", "Home", null, new { @class = "but4" } )</li>
-                    <li>@Html.ActionLink("Top Viewed", "TopViewed", "Home", null, new { @class = "but5" } )</li>
-                    <li>@Html.ActionLink("Top Rate", "TopRate", "Home", null, new { @class = "but6" } )</li>
-                </ul>
-@*                <div class="logo">SSL Business directory is a complete directory service which will help you to find out the best resource online. You will get all the links you need. Also you can  submit your weblinks too.</div>
+<div id="site">
+    <div id="wrapper">
+        <div id="header">
+            <a href="#" id="logo">
+                <img src="@Url.Content("~/Content/themes/images/spacer.gif")" alt="" width="360" height="90" /></a>
+            <div style="position: absolute; top: 1px; left: 1px; height: 0px; width: 0px; overflow: hidden">
+                <h1><a href="http://www.greatdirectories.org">best web directories</a></h1>
+                <h1><a href="http://www.bestfreetemplates.org">best free templates</a></h1>
+            </div>
+            <div class="search">
+                <span>Search</span>
+                <input type="text" /><a href="#"><img src="@Url.Content("~/Content/themes/images/go.jpg")" alt="setalpm" width="72" height="28" /></a>
+            </div>
+            <ul id="menu">
+                <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "but1_active" })</li>
+                <li>@Html.ActionLink("About", "About", "Home", null, new { @class = "but2" })</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "but3" } )</li>
+                <li>@Html.ActionLink("Submit List", "SubmitList", "Home", null, new { @class = "but4" } )</li>
+                <li>@Html.ActionLink("Top Viewed", "TopViewed", "Home", null, new { @class = "but5" } )</li>
+                <li>@Html.ActionLink("Top Rate", "TopRate", "Home", null, new { @class = "but6" } )</li>
+            </ul>
+            @*                <div class="logo">SSL Business directory is a complete directory service which will help you to find out the best resource online. You will get all the links you need. Also you can  submit your weblinks too.</div>
                 <div class="rss">
                     <a href="#">
                         <img src="@Url.Content("~/Content/themes/images/spacer.gif")" alt="" width="27" height="62" /></a>
                 </div>*@
-@*                <span class="text">Products and Services</span>*@
-            </div>
-            <div id="content">
-                <div id="main">
-                    @RenderBody()
-                </div>
-            </div>
-            <div id="footer">
-                <ul>
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Submit List", "SubmitList", "Home")</li>
-                    <li>@Html.ActionLink("Top Viewed", "TopViewed", "Home")</li>
-                    <li>@Html.ActionLink("Top Rate", "TopRate", "Home")</li>
-                </ul>
-                <p>Copyright &copy;. 2016 Desing Website. All rights reserved. Developed by <a href="#" target="_blank" title="#">SSL</a></p>
+            @*                <span class="text">Products and Services</span>*@
+        </div>
+        <div id="content">
+            <div id="main">
+                @RenderBody()
             </div>
         </div>
+        <div id="footer">
+            <ul>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Submit List", "SubmitList", "Home")</li>
+                <li>@Html.ActionLink("Top Viewed", "TopViewed", "Home")</li>
+                <li>@Html.ActionLink("Top Rate", "TopRate", "Home")</li>
+            </ul>
+            <p>Copyright &copy;. 2016 Desing Website. All rights reserved. Developed by <a href="#" target="_blank" title="#">SSL</a></p>
+        </div>
     </div>
+</div>
+    @RenderSection("scripts",false)
 </body>
 </html>

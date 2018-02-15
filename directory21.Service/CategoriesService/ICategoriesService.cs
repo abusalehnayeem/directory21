@@ -9,11 +9,11 @@ namespace directory21.Service.CategoriesService
 {
     public interface ICategoriesService
     {
-        void DeleteCategories(Categories categories);
-        void InsertCategories(Categories categories);
-        void UpdateCategories(Categories categories);
-        Categories GetCategoriesById(int categoriesId);
-        Categories GetCategoriesByResourcesId(int resourcesId);
-        IQueryable<Categories> GetAllCategories();
+        void DeleteCategory(int categoryId);
+        void InsertCategory(Categories category);
+        void UpdateCategory(Categories category);
+        void UpdateCategory(int categoryId);
+        Categories GetCategoryById(int categoryId);
+        Task<List<Categories>> GetAllCategories();
     }
 }

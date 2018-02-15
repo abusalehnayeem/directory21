@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using directory21.Core;
 using directory21.Core.Data;
 using directory21.Core.Domain;
 
@@ -10,54 +11,51 @@ namespace directory21.Service.CategoriesService
 {
     public class CategoriesService : ICategoriesService
     {
-        private readonly IRepository<Categories> _categoriesRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        #region   Constructor
-
-        public CategoriesService(IRepository<Categories> categoriesRepository)
+        public CategoriesService(IUnitOfWork unitOfWork)
         {
-            if (categoriesRepository == null) throw new ArgumentNullException("categoriesRepository");
-            _categoriesRepository = categoriesRepository;
+            _unitOfWork = unitOfWork;
         }
 
-        #endregion
-
-        #region Implementation of ICategoriesService
-
-        public void DeleteCategories(Categories categories)
+        public void DeleteCategory(int categoryId)
         {
-
+            var cat = _unitOfWork.CategoryRepository.FindById(categoryId);
+            if (cat == null) throw new ArgumentException("Categories");
+            _unitOfWork.CategoryRepository.Remove(cat);
+            _unitOfWork.SaveChanges();
         }
 
-        public void InsertCategories(Categories categories)
+        public void InsertCategory(Categories category)
         {
-            
+            if (category == null) throw new ArgumentException("category");
+            _unitOfWork.CategoryRepository.Add(category);
+            _unitOfWork.SaveChanges();
         }
 
-        public void UpdateCategories(Categories categories)
+        public void UpdateCategory(Categories category)
         {
-            if (categories == null)
-            {
-                throw new ArgumentException("categories");
-            }
-            _categoriesRepository.Update(categories);
+            if (category == null) throw new ArgumentException("category");
+            _unitOfWork.CategoryRepository.Update(category);
+            _unitOfWork.SaveChanges();
         }
 
-        public Categories GetCategoriesById(int categoriesId)
+        public void UpdateCategory(int categoryId)
         {
-            return categoriesId == 0 ? null : _categoriesRepository.GetById(categoriesId);
+            var cat = _unitOfWork.CategoryRepository.FindById(categoryId);
+            if (cat == null) return;
+            _unitOfWork.CategoryRepository.Update(cat);
+            _unitOfWork.SaveChanges();
         }
 
-        public Categories GetCategoriesByResourcesId(int resourcesId)
+        public Categories GetCategoryById(int categoryId)
         {
-            return resourcesId == 0 ? null : _categoriesRepository.GetById(resourcesId);
+            return _unitOfWork.CategoryRepository.FindById(categoryId);
         }
 
-        public IQueryable<Categories> GetAllCategories()
+        public async Task<List<Categories>> GetAllCategories()
         {
-            return _categoriesRepository.Table;
+            return await _unitOfWork.CategoryRepository.GetAllAsync();
         }
-
-        #endregion
     }
 }

@@ -1,70 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using directory21.Core.Data;
+using directory21.Core;
 using directory21.Core.Domain;
 
 namespace directory21.Service.ItemsService
 {
     public class ItemsService : IItemsService
     {
-        #region Variables
+        private readonly IUnitOfWork _unitOfWork;
 
-        private readonly IRepository<Items> _itemsRepository;
-
-        #endregion
-
-        #region Constructor
-
-        public ItemsService(IRepository<Items> itemsRepository)
+        public ItemsService(IUnitOfWork unitOfWork)
         {
-            if (itemsRepository == null) throw new ArgumentNullException(nameof(itemsRepository));
-            _itemsRepository = itemsRepository;
+            _unitOfWork = unitOfWork;
         }
 
-        #endregion
-
-        #region Implementation of IResourcesService
-
-        public void DeleteItems(Items items)
+        public void DeleteItem(int itemId)
         {
-            if (items == null)
-            {
-                throw new ArgumentException("items");
-            }
-            _itemsRepository.Delete(items);
+            var item = _unitOfWork.ItemRepository.FindById(itemId);
+            if (item == null) throw new ArgumentException("Items");
+            _unitOfWork.ItemRepository.Remove(item);
+            _unitOfWork.SaveChanges();
         }
 
-        public void InsertItems(Items items)
+        public void InsertItem(Items item)
         {
-            if (items == null)
-            {
-                throw new ArgumentException("resources");
-            }
-            _itemsRepository.Insert(items);
+            if (item == null) throw new ArgumentException("item");
+            _unitOfWork.ItemRepository.Add(item);
+            _unitOfWork.SaveChanges();
         }
 
-        public void UpdateItems(Items items)
+        public void UpdateItem(Items item)
         {
-            if (items == null)
-            {
-                throw new ArgumentException("resources");
-            }
-            _itemsRepository.Update(items);
+            if (item == null) throw new ArgumentException("item");
+            _unitOfWork.ItemRepository.Update(item);
+            _unitOfWork.SaveChanges();
         }
 
-        public Items GetItemsById(int itemsId)
+        public void UpdateItem(int itemId)
         {
-            return itemsId == 0 ? null : _itemsRepository.GetById(itemsId);
+            var itm = _unitOfWork.ItemRepository.FindById(itemId);
+            if (itm == null) return;
+            _unitOfWork.ItemRepository.Update(itm);
+            _unitOfWork.SaveChanges();
         }
 
-        public IQueryable<Items> GetAllItems()
+        public Items GetItemById(int itemId)
         {
-            return _itemsRepository.Table;
+            return _unitOfWork.ItemRepository.FindById(itemId);
         }
 
-        #endregion
+        public async Task<List<Items>> GetAllItems()
+        {
+            return await _unitOfWork.ItemRepository.GetAllAsync();
+        }
     }
 }
