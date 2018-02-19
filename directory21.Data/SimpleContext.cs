@@ -9,7 +9,7 @@ using MySql.Data.Entity;
 namespace directory21.Data
 {
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
-    internal class SimpleContext : DbContext
+    public class SimpleContext : DbContext
     {
         static SimpleContext()
         {

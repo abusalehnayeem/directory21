@@ -7,12 +7,12 @@ using directory21.Core.Data;
 
 namespace directory21.Data.Repositories
 {
-    internal class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private readonly SimpleContext _context;
         private DbSet<TEntity> _set;
 
-        internal Repository(SimpleContext context)
+        public Repository(SimpleContext context)
         {
             _context = context;
         }

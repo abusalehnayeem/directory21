@@ -3,9 +3,9 @@ using directory21.Core.Domain;
 
 namespace directory21.Data.Repositories
 {
-    internal class ItemRepository:Repository<Items>,IItemRepository
+    public class ItemRepository:Repository<Items>,IItemRepository
     {
-        internal ItemRepository(SimpleContext context) : base(context)
+        public ItemRepository(SimpleContext context) : base(context)
         {
         }
     }
