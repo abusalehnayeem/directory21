@@ -20,13 +20,8 @@ namespace directory21.Web.Controllers
 
         public ActionResult Index()
         {
-            //var homeViewModel = new HomeViewModel();
-            //var httpModule = HttpContext.ApplicationInstance;
+            var res=_resourcesService.GetAllResources();
 
-            //var httpModuleCollection = httpModule.Modules;
-            //ViewBag.ModuleCount = httpModuleCollection.Count;
-
-            //var res = _resourcesService.GetAllResources().ToList();
             return View();
         }
 
