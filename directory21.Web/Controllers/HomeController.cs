@@ -22,7 +22,7 @@ namespace directory21.Web.Controllers
         {
             var res=_resourcesService.GetAllResources();
 
-            return View();
+            return View(res);
         }
 
         public ActionResult Resource(int id)

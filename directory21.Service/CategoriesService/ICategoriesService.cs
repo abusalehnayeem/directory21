@@ -14,6 +14,7 @@ namespace directory21.Service.CategoriesService
         void UpdateCategory(Categories category);
         void UpdateCategory(int categoryId);
         Categories GetCategoryById(int categoryId);
-        Task<List<Categories>> GetAllCategories();
+        Task<List<Categories>> GetAllCategoriesAsyn();
+        List<Categories> GetAllCategories();
     }
 }

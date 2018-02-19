@@ -11,6 +11,7 @@ namespace directory21.Service.ItemsService
         void UpdateItem(Items item);
         void UpdateItem(int itemId);
         Items GetItemById(int itemId);
-        Task<List<Items>> GetAllItems();
+        List<Items> GetAllItems();
+        Task<List<Items>> GetAllItemsAsyn();
     }
 }

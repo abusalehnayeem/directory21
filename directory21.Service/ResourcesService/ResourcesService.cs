@@ -55,7 +55,12 @@ namespace directory21.Service.ResourcesService
             return _unitOfWork.ResourceRepository.FindById(resourcesId);
         }
 
-        public async Task<List<Resources>> GetAllResources()
+        List<Resources> IResourcesService.GetAllResources()
+        {
+            return _unitOfWork.ResourceRepository.GetAll().ToList();
+        }
+
+        public async Task<List<Resources>> GetAllResourcesAsyn()
         {
             return await _unitOfWork.ResourceRepository.GetAllAsync();
         }

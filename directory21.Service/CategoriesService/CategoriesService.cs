@@ -53,9 +53,14 @@ namespace directory21.Service.CategoriesService
             return _unitOfWork.CategoryRepository.FindById(categoryId);
         }
 
-        public async Task<List<Categories>> GetAllCategories()
+        public async Task<List<Categories>> GetAllCategoriesAsyn()
         {
             return await _unitOfWork.CategoryRepository.GetAllAsync();
+        }
+
+        public List<Categories> GetAllCategories()
+        {
+            return _unitOfWork.CategoryRepository.GetAll().ToList();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace directory21.Web.Infrastructure
         }
         public void Dispose()
         {
-            _viewContext.Writer.Write("");
+            _viewContext.Writer.Write("</div>");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using directory21.Core;
 using directory21.Core.Domain;
@@ -50,7 +51,12 @@ namespace directory21.Service.ItemsService
             return _unitOfWork.ItemRepository.FindById(itemId);
         }
 
-        public async Task<List<Items>> GetAllItems()
+        public List<Items> GetAllItems()
+        {
+            return _unitOfWork.ItemRepository.GetAll().ToList(); ;
+        }
+
+        public async Task<List<Items>> GetAllItemsAsyn()
         {
             return await _unitOfWork.ItemRepository.GetAllAsync();
         }

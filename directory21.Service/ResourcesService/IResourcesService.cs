@@ -12,6 +12,7 @@ namespace directory21.Service.ResourcesService
         void UpdateResources(Resources resources);
         void UpdateResources(int resourcesId);
         Resources GetResourcesById(int resourcesId);
-        Task<List<Resources>> GetAllResources();
+        List<Resources> GetAllResources();
+        Task<List<Resources>> GetAllResourcesAsyn();
     }
 }
