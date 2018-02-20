@@ -1,13 +1,5 @@
 ﻿@model directory21.Web.ViewModels.HomeViewModel
-@*@using directory21.Web.Infrastructure
-    @model List<directory21.Core.Domain.Resources>
 
-    @{
-        ViewBag.Title = "Index";
-    }
-
-    @Html.ListView("Resources", "sidebar", Model)
-    @Html.ListView("Categories", "main", Model)*@
 @{
     ViewBag.Title = "Home";
     var i = 0;
@@ -27,26 +19,63 @@
 
     @foreach (var item in Model.CategoriesList)
     {
-        i += 1;
-        var width = "width1";
-        if (i == 2 || i == 5 || i == 8)
+        switch (i % 3)
         {
-            width = "width2";
-        }
-
-        <div class="block @width">
-            <a href="#" class="title">@item.CategotyName (@item.Items.Count)</a>
-            @{
-                var catItems = item.Items.Take(5);
-            }
-            <ul>
-                @foreach (var cItem in catItems)
+            case 0:
                 {
-                    <li>&raquo; <a href="#">@cItem.ItemName</a></li>
-                }
+                    <div class="block width1">
+                        <a href="#" class="title">@item.CategotyName (@item.Items.Count)</a>
+                        @{
+                            var catItems = item.Items.Take(5);
+                        }
+                        <ul>
+                            @foreach (var cItem in catItems)
+                            {
+                                <li>&raquo; <a href="#">@cItem.ItemName</a></li>
+                            }
 
-            </ul>
-        </div>
+                        </ul>
+                    </div>
+                    break;
+                }
+            case 1:
+                {
+                    <div class="block width2">
+                        <a href="#" class="title">@item.CategotyName (@item.Items.Count)</a>
+                        @{
+                            var catItems = item.Items.Take(5);
+                        }
+                        <ul>
+                            @foreach (var cItem in catItems)
+                            {
+                                <li>&raquo; <a href="#">@cItem.ItemName</a></li>
+                            }
+
+                        </ul>
+                    </div>
+                    break;
+                }
+            case 2:
+                {
+                    <div class="block width1">
+                        <a href="#" class="title">@item.CategotyName (@item.Items.Count)</a>
+                        @{
+                            var catItems = item.Items.Take(5);
+                        }
+                        <ul>
+                            @foreach (var cItem in catItems)
+                            {
+                                <li>&raquo; <a href="#">@cItem.ItemName</a></li>
+                            }
+
+                        </ul>
+                    </div>
+                    break;
+                }
+            default:
+                break;
+        }
+        @(i++)
     }
 
     <h4 class="pad15">About Directory</h4>
