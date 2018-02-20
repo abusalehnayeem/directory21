@@ -1,6 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using directory21.Service.CategoriesService;
 using directory21.Service.ResourcesService;
+using directory21.Web.ViewModels;
 
 namespace directory21.Web.Controllers
 {
@@ -20,9 +22,14 @@ namespace directory21.Web.Controllers
 
         public ActionResult Index()
         {
-            var res=_resourcesService.GetAllResources();
-
-            return View(res);
+            var res=_resourcesService.GetAllResources().Take(20);
+            var cats = _categoriesService.GetAllCategories().Take(9);
+            var model = new HomeViewModel
+            {
+                CategoriesList = cats,
+                ResourcesList = res
+            };
+            return View(model);
         }
 
         public ActionResult Resource(int id)
