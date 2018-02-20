@@ -9,10 +9,11 @@
     <ul>
         @foreach (var item in Model.ResourcesList)
         {
-            <li><a href="#">@item.ResourceName</a></li>
+            <li><a href="@Url.Action("Index","Resource",new { id = item.Id })">@item.ResourceName</a></li>
         }
     </ul>
-    <a href="#" class="more">more resourses</a><br />
+    <a href="@Url.Action("Index","Resource")" class="more">more resourses</a>
+    <br />
 </div>
 <div id="main">
     <h4>Categories</h4>
@@ -24,14 +25,14 @@
             case 0:
                 {
                     <div class="block width1">
-                        <a href="#" class="title">@item.CategotyName (@item.Items.Count)</a>
+                        <a href="@Url.Action("Index","Category",new { id = item.Id })" class="title">@item.CategotyName (@item.Items.Count)</a>
                         @{
                             var catItems = item.Items.Take(5);
                         }
                         <ul>
                             @foreach (var cItem in catItems)
                             {
-                                <li>&raquo; <a href="#">@cItem.ItemName</a></li>
+                                <li>&raquo; <a href="@Url.Action("Index","Item",new { id = item.Id })">@cItem.ItemName</a></li>
                             }
 
                         </ul>
@@ -41,14 +42,14 @@
             case 1:
                 {
                     <div class="block width2">
-                        <a href="#" class="title">@item.CategotyName (@item.Items.Count)</a>
+                        <a href="@Url.Action("Index","Category",new { id = item.Id })" class="title">@item.CategotyName (@item.Items.Count)</a>
                         @{
                             var catItems = item.Items.Take(5);
                         }
                         <ul>
                             @foreach (var cItem in catItems)
                             {
-                                <li>&raquo; <a href="#">@cItem.ItemName</a></li>
+                                <li>&raquo; <a href="@Url.Action("Index","Item",new { id = item.Id })">@cItem.ItemName</a></li>
                             }
 
                         </ul>
@@ -58,22 +59,20 @@
             case 2:
                 {
                     <div class="block width1">
-                        <a href="#" class="title">@item.CategotyName (@item.Items.Count)</a>
+                        <a href="@Url.Action("Index","Category",new { id = item.Id })" class="title">@item.CategotyName (@item.Items.Count)</a>
                         @{
                             var catItems = item.Items.Take(5);
                         }
                         <ul>
                             @foreach (var cItem in catItems)
                             {
-                                <li>&raquo; <a href="#">@cItem.ItemName</a></li>
+                                <li>&raquo; <a href="@Url.Action("Index","Item",new { id = item.Id })">@cItem.ItemName</a></li>
                             }
 
                         </ul>
                     </div>
                     break;
                 }
-            default:
-                break;
         }
         i = i + 1;
     }
